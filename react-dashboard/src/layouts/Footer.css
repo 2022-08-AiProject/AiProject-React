@@ -1,0 +1,23 @@
+.footer-div{
+    text-align:right;
+    margin-top:20px;
+}
+
+p,
+a,
+a:hover{
+    color: #677482;
+    font-size: 14px;
+    text-decoration: none;
+    text-align:left;
+    margin: 3px;
+}
+
+@media (max-width: 1025px) {
+    .footer-div{
+        text-align:center;
+    }
+    p{
+        text-align:center;
+    }
+}

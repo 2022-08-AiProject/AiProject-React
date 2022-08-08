@@ -1,0 +1,15 @@
+.copy-img{
+    margin-left: 3px;
+    width: 12px;
+}
+
+@media (max-width: 1025px) {
+    .table-card{
+        width: 100%;
+    }
+}
+@media (min-width: 1025px) {
+    .table-card{
+        width: 100%;
+    }
+}

@@ -1,0 +1,39 @@
+h5{
+    font-size: 16px;
+    color: #344767;
+}
+
+th{
+    font-size: 12px;
+    text-align: center;
+    color: #69778f;
+}
+
+h6{
+    color: #344767;
+    font-size: 14px;
+}
+
+td{
+    font-size: 12px;
+    text-align: center;
+    color: #48505e;
+}
+
+@media (max-width: 1025px) {
+    .main-div{
+        display:block;
+    }
+}
+@media (min-width: 1025px) {
+    .main-div{
+        display:flex;
+    }
+    .row-map{
+        width:50%;
+        margin-right: 10px;
+    }
+    .row-table{
+        width:55%;
+    }
+}

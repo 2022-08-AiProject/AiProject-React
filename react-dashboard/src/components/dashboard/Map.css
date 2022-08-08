@@ -1,0 +1,90 @@
+.map{
+    height: 300px;
+    width: 100%;
+}
+
+@media (max-width: 1025px) {
+    .map-card{
+        width: 100%;
+    }
+}
+@media (min-width: 1025px) {
+    .map-card{
+        width: 100%;
+    }
+}
+
+.search-bar{
+    margin-bottom: 7px;
+}
+
+.search-button,
+.search-button:visited{
+    background-color: coral !important;
+    border-color: coral !important;
+    color:white;
+    box-shadow: none !important;
+}
+
+.search-button:hover,
+.search-button.active
+.btn-warning{
+    color: rgb(255, 170, 139);
+    box-shadow: none !important;
+}
+
+.map-title-div{
+    display: flex;
+}
+.map-search-div{
+    width:50%;
+}
+.map-option-div{
+    width:50%;
+}
+
+.form-select{
+    width:70%;
+    font-size: 10px;
+    float: right;
+}
+
+.btn-food button{
+    font-size: 10px;
+    height: 30px;
+}
+
+.btn-food button{
+    color: coral;
+    border-color: coral;
+    box-shadow: none !important;
+}
+
+.btn-food button:hover,
+.btn-food button:visited,
+.btn-outline-secondary.active{
+    color: #fff;
+    background-color: rgb(255, 166, 65);
+    border-color: coral;
+    box-shadow: none !important;
+}
+
+.btn-recommend{
+    font-size: 10px;
+    height: 30px;
+    font-weight: bold;
+    margin-right: 5px;
+    color: #fff;
+    background-color: coral !important;
+    border-color: coral !important;
+    box-shadow: none !important;
+}
+.btn-recommend:visited,
+.btn-recommend:hover{
+    font-size: 10px;
+    height: 30px;
+    margin-right: 5px;
+    color: rgb(255, 170, 139);
+    box-shadow: none !important;
+}
+

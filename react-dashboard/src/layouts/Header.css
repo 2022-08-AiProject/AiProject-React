@@ -1,7 +1,29 @@
 .title-link,
-.title-link:hover,
+.title-link:hover{
+    color: #344767;
+    text-decoration: none;
+    font-weight: bold;
+}
+.user-div{
+    display:flex;
+}
 .nickname{
     color: #344767;
     text-decoration: none;
     font-weight: bold;
+    align-items: center;
+}
+
+@media (max-width: 768px){
+    .user-div{
+        display:flex;
+        flex-direction: row-reverse;
+        float: left;
+    }
+    .me-auto{
+        margin-left: 10px;
+    }
+    .rounded-circle{
+        width: 25px;
+    }
 }

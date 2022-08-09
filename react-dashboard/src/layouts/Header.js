@@ -43,6 +43,7 @@ const Header = () => {
       </div>
 
       <Collapse navbar isOpen={isOpen}>
+        {/* 로고 */}
         <Nav className="me-auto" navbar>
           <NavItem>
             <Link to="/starter" className="title-link">
@@ -50,26 +51,30 @@ const Header = () => {
             </Link>
           </NavItem>
         </Nav>
-        
+        <div className="user-div">
+          {/* 로그인/회원 닉네임 */}
           <Nav className="nickname">
-            <span> Login </span>
+            <span> User님 환영합니다! </span>
           </Nav>
-        
-        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-          <DropdownToggle color="light">
-            <img
-              src={user1}
-              alt="profile"
-              className="rounded-circle"
-              width="30"
-            ></img>
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>Info</DropdownItem>
-            <DropdownItem>My Profile</DropdownItem>
-            <DropdownItem>Logout</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+          {/* 아이콘 */}
+          <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            <DropdownToggle color="light">
+              <img
+                src={user1}
+                alt="profile"
+                className="rounded-circle"
+                width="30"
+              ></img>
+            </DropdownToggle>
+            {/* 아이콘 드롭다운 */}
+            <DropdownMenu>
+              <DropdownItem header>Info</DropdownItem>
+              <DropdownItem>My Profile</DropdownItem>
+              <DropdownItem>Logout</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+          {/* 드롭다운 종료 */}
+        </div>
       </Collapse>
     </Navbar>
   );

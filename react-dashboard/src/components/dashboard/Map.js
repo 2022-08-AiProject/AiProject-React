@@ -1,6 +1,5 @@
-import { Card, CardBody, ButtonGroup, CardTitle, InputGroup, Button, Input, FormGroup, Label } from "reactstrap";
+import { Card, CardBody, ButtonGroup, CardTitle, InputGroup, Button, Input, FormGroup} from "reactstrap";
 // import "../assets/scss/style.scss";
-import Chart from "react-apexcharts";
 import './Map.css';
 import { useState } from "react";
 
@@ -16,6 +15,9 @@ const Map = () => {
     }
     setCSelected([...cSelected]);
   };
+
+  // 가격 선택
+  const [rSelected, setRSelected] = useState(null);
 
   return (
     <div>
@@ -71,9 +73,52 @@ const Map = () => {
         >
           분식
         </Button>
+        <Button
+          // color="primary"
+          outline
+          onClick={() => onCheckboxBtnClick(6)}
+          active={cSelected.includes(6)}
+        >
+          기타
+        </Button>
       </ButtonGroup>
-      <p>Selected: {JSON.stringify(cSelected)}</p>
       {/* 분류 버튼 end */}
+      {/* 가격 버튼*/}
+      <ButtonGroup className="btn-price">
+        <Button
+          outline
+          onClick={() => setRSelected(1)}
+          active={rSelected === 1}
+        >
+          1만원
+        </Button>
+        <Button
+          outline
+          onClick={() => setRSelected(2)}
+          active={rSelected === 2}
+        >
+          2만원
+        </Button>
+        <Button
+          outline
+          onClick={() => setRSelected(3)}
+          active={rSelected === 3}
+        >
+          3만원
+        </Button>
+        <Button
+          outline
+          onClick={() => setRSelected(4)}
+          active={rSelected === 4}
+        >
+          3만원 이상
+        </Button>
+      </ButtonGroup>
+      {/* 임시 출력용 */}
+      <br />
+      <span>분류 선택: {JSON.stringify(cSelected)},</span>
+      <span>가격 선택: {rSelected}</span>
+      {/* 가격 버튼 end */}
     {/* 지도 */}
     <Card className="map-card">
       <CardBody>

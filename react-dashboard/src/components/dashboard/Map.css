@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.map-card{
+    margin-top: 7px;
+}
+
 @media (max-width: 1025px) {
     .map-card{
         width: 100%;
@@ -12,10 +16,13 @@
     .map-card{
         width: 100%;
     }
+    .btn-price{
+        margin-top: 7px;
+    }
 }
 
 .search-bar{
-    margin-bottom: 7px;
+    margin-bottom: 15px;
 }
 
 .search-button,
@@ -49,22 +56,32 @@
     float: right;
 }
 
-.btn-food button{
+.btn-food button,
+.btn-price button{
     font-size: 10px;
     height: 30px;
+    font-weight: bold;
 }
 
-.btn-food button{
+.btn-food{
+    margin-right: 10px;
+}
+
+.btn-food button,
+.btn-price button{
     color: coral;
     border-color: coral;
     box-shadow: none !important;
+    background-color: #fff;
 }
 
 .btn-food button:hover,
 .btn-food button:visited,
-.btn-outline-secondary.active{
+.btn-outline-secondary.active,
+.btn-price button:hover,
+.btn-price button:visited{
     color: #fff;
-    background-color: rgb(255, 166, 65);
+    background-color: coral;
     border-color: coral;
     box-shadow: none !important;
 }
@@ -73,7 +90,7 @@
     font-size: 10px;
     height: 30px;
     font-weight: bold;
-    margin-right: 5px;
+    margin-right: 10px;
     color: #fff;
     background-color: coral !important;
     border-color: coral !important;
@@ -83,8 +100,11 @@
 .btn-recommend:hover{
     font-size: 10px;
     height: 30px;
-    margin-right: 5px;
     color: rgb(255, 170, 139);
     box-shadow: none !important;
 }
 
+span {
+    margin-right: 7px;
+    font-size: 13px;
+}

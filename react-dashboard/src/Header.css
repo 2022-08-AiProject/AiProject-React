@@ -27,3 +27,9 @@
         width: 25px;
     }
 }
+
+.dropdown-manu,
+.dropdown-manu:hover{
+    font-weight: 400;
+    color: #212529;
+}

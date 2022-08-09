@@ -14,7 +14,7 @@ import {
   Button,
 } from "reactstrap";
 import user1 from "./assets/images/users/user.png";
-import './Header.css'
+import './Header.css';
 
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -54,7 +54,7 @@ const Header = () => {
         <div className="user-div">
           {/* 로그인/회원 닉네임 */}
           <Nav className="nickname">
-            <span> User님 환영합니다! </span>
+            <Link to="/login" className="login-link"> User님 환영합니다! </Link>
           </Nav>
           {/* 아이콘 */}
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -69,7 +69,9 @@ const Header = () => {
             {/* 아이콘 드롭다운 */}
             <DropdownMenu>
               <DropdownItem header>Info</DropdownItem>
-              <DropdownItem>My Profile</DropdownItem>
+              <DropdownItem>
+                <Link to='/mypage' className="dropdown-manu">My Profile</Link>
+              </DropdownItem>
               <DropdownItem>Logout</DropdownItem>
             </DropdownMenu>
           </Dropdown>

@@ -13,7 +13,7 @@ import {
   Dropdown,
   Button,
 } from "reactstrap";
-import user1 from "../assets/images/users/user.png";
+import user1 from "./assets/images/users/user.png";
 import './Header.css'
 
 const Header = () => {

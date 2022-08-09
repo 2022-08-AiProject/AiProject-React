@@ -2,7 +2,7 @@ import { Col, Row } from "reactstrap";
 import Map from "../components/dashboard/Map";
 import Tables from "../components/dashboard/Tables";
 import './Starter.css';
-import Footer from "../layouts/Footer";
+import Footer from '../Footer.js';
 
 const Starter = () => {
   return (

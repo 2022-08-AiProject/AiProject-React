@@ -3,16 +3,47 @@
     align-content: center;
 }
 .form-div{
-    background-color: white;
-    border:1px solid gray;
+    background-color: #fff;
+    border:1px solid rgba(0,0,0,.125);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 5%);
     border-radius: 20px;
     width: 300px;
-    height: 500px;
     display: inline-block;
+    padding: 20px;
+    margin-top: 30px;
 }
 .title-link,
 .title-link:hover{
     color: #344767;
     text-decoration: none;
     font-weight: bold;
+}
+
+.form-div h5{
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.login-btn{
+    width:100%;
+    margin-top:10px;
+    background-color: coral !important;
+    border-color: coral !important;
+}
+.join-div{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.join-div a{
+    text-decoration: none;
+}
+.join-link{
+    color:gray;
+    font-size:10px;
+    margin-top: 5px;
+}
+.mb-3{
+    margin-top:20px;
 }

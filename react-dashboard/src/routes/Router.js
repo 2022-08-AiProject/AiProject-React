@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { Navigate } from "react-router-dom";
 import Login from '../Login';
 import Mypage from '../Mypage';
+import Join from '../Join';
 /****Layouts*****/
 const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
 
@@ -37,6 +38,7 @@ const ThemeRoutes = [
       { path: "/forms", exact: true, element: <Forms /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
       { path: "/login", exact: true, element: <Login /> },
+      { path: "/join", exact: true, element: <Join /> },
       { path: "/mypage", exact: true, element: <Mypage /> },
     ],
   },

@@ -1,4 +1,4 @@
-.login-div{
+.join-div{
     text-align: center;
     align-content: center;
 }
@@ -26,24 +26,37 @@
     margin-top: 20px;
 }
 
-.login-btn{
+.join-btn{
     width:100%;
-    margin-top:10px;
+    margin-top:30px;
     background-color: coral !important;
     border-color: coral !important;
 }
-.join-btn-div{
-    display: flex;
-    flex-direction: row-reverse;
+.back-btn{
+    width:100%;
+    margin-top:5px;
+    background-color: #fff !important;
+    border-color: coral !important;
+    color: coral !important;
 }
-.join-btn-div a{
-    text-decoration: none;
-}
-.join-link{
-    color:gray;
-    font-size:10px;
-    margin-top: 5px;
-}
+
 .mb-3{
     margin-top:20px;
+}
+
+.form-label{
+    text-align: left;
+    display: block;
+    margin-left: 5px;
+    font-size: 14px;
+    margin-top: 7px;
+    margin-bottom: 3px !important;
+}
+
+.like-menu{
+    display: flex;
+}
+.like1,
+.like2{
+    margin-right: 5px;
 }

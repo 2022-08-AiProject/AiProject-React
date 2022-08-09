@@ -37,7 +37,7 @@ function Login(){
                     로그인
                     </Button>
                 </Form>
-                <div className='join-div'>
+                <div className='join-btn-div'>
                     <Link to='/join'>
                     <span className='join-link'>회원가입</span>
                     </Link>

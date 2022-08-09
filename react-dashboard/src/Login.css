@@ -1,0 +1,18 @@
+.login-div{
+    text-align: center;
+    align-content: center;
+}
+.form-div{
+    background-color: white;
+    border:1px solid gray;
+    border-radius: 20px;
+    width: 300px;
+    height: 500px;
+    display: inline-block;
+}
+.title-link,
+.title-link:hover{
+    color: #344767;
+    text-decoration: none;
+    font-weight: bold;
+}

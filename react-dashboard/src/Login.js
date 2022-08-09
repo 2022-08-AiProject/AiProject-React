@@ -1,7 +1,11 @@
+import './Login.css';
+
 function Login(){
     return(
-        <div>
-            Login
+        <div className="login-div">
+            <div className="form-div">
+
+            </div>
         </div>
     );
 };

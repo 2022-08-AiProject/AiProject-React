@@ -44,12 +44,12 @@
     margin-top:20px;
 }
 
-.form-label{
+.join-label{
     text-align: left;
     display: block;
     margin-left: 5px;
     font-size: 14px;
-    margin-top: 7px;
+    margin-top: 10px;
     margin-bottom: 3px !important;
 }
 

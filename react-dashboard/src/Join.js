@@ -1,6 +1,5 @@
 import './Join.css';
 import {Form, FormGroup, Input, Label, Button, FormFeedback, FormText} from "reactstrap";
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Join(){
@@ -16,24 +15,24 @@ function Join(){
                 <h5>회원가입</h5>
                 <hr />
                 <Form>
-                    <Label>
+                    <Label className="join-label">
                     이름
                     </Label>
                     <Input className="join-name" type="string" autoFocus/>
                     {/* <p className="name-error">이름은 필수 입력 요소입니다.</p> */}
-                    <Label>
+                    <Label className="join-label">
                     아이디
                     </Label>
                     <Input className="join-id" type="string"/>
-                    <Label>
+                    <Label className="join-label">
                     비밀번호
                     </Label>
                     <Input className="join-pw" type="password"/>
-                    <Label>
+                    <Label className="join-label">
                     비밀번호 확인
                     </Label>
                     <Input className="join-pwcheck" type="password"/>
-                    <Label>
+                    <Label className="join-label">
                     좋아하는 메뉴
                     </Label>
                     <div className="like-menu">

@@ -70,9 +70,9 @@ const Header = () => {
             <DropdownMenu>
               <DropdownItem header>Info</DropdownItem>
               <DropdownItem>
-                <Link to='/mypage' className="dropdown-manu">My Profile</Link>
+                <Link to='/mypage' className="mypage-menu">My Profile</Link>
               </DropdownItem>
-              <DropdownItem>Logout</DropdownItem>
+              <DropdownItem className="logout-menu">Logout</DropdownItem>
             </DropdownMenu>
           </Dropdown>
           {/* 드롭다운 종료 */}

@@ -28,10 +28,15 @@
     }
 }
 
-.dropdown-manu,
-.dropdown-manu:hover{
+.mypage-menu,
+.mypage-menu:hover{
     font-weight: 400;
     color: #212529;
+}
+
+.logout-menu{
+    font-size: 14px;
+    margin-left: 3px;
 }
 
 .login-link,

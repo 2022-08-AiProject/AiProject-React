@@ -3,9 +3,9 @@
     margin-top:20px;
 }
 
-p,
-a,
-a:hover{
+.footer-div p,
+.footer-div a,
+.footer-div a:hover{
     color: #677482;
     font-size: 14px;
     text-decoration: none;
@@ -17,7 +17,7 @@ a:hover{
     .footer-div{
         text-align:center;
     }
-    p{
+    .footer-div p{
         text-align:center;
     }
 }

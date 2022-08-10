@@ -1,9 +1,13 @@
 import {Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem, Button, Input} from "reactstrap";
 import './Modify.css';
-import React, {useState} from "react";
-
+import { useNavigate } from 'react-router-dom';
 
 function Modify(){
+    // 뒤로가기
+    const navigate = useNavigate();
+    const goBack = () => {
+        navigate(-1);
+    }
 
     return(
         <div className='modify-div'>
@@ -36,6 +40,7 @@ function Modify(){
             </ListGroup>
             <CardBody>
                 <Button className='modify-btn'>수정</Button>
+                <Button className='modify-back-btn' onClick={goBack}>수정 취소</Button>
             </CardBody>
             </Card>
         </div>

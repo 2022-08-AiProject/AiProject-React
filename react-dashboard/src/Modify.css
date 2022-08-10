@@ -44,6 +44,13 @@
     background-color: coral !important;
     border-color: coral !important;
 }
+.modify-back-btn{
+    width: 100%;
+    background-color: #fff !important;
+    color: coral !important;
+    border-color: coral !important;
+    margin-top : 5px;
+}
 
 .modify-input{
     height: 35px;

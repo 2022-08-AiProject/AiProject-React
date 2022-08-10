@@ -24,6 +24,11 @@ const Header = () => {
   const Handletoggle = () => {
     setIsOpen(!isOpen);
   };
+
+  // Mypage 이동
+  const changeMypage= () =>{
+    document.location.href = '#/mypage';
+}
   
   return (
     <Navbar color="light" expand="md">
@@ -69,8 +74,7 @@ const Header = () => {
             {/* 아이콘 드롭다운 */}
             <DropdownMenu>
               <DropdownItem header>Info</DropdownItem>
-              <DropdownItem>
-                <Link to='/mypage' className="mypage-menu">My Page</Link>
+              <DropdownItem className="mypage-menu" onClick={changeMypage}>My Page
               </DropdownItem>
               <DropdownItem className="logout-menu">Logout</DropdownItem>
             </DropdownMenu>

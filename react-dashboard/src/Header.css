@@ -32,11 +32,11 @@
 .mypage-menu:hover{
     font-weight: 400;
     color: #212529;
+    font-size: 14px;
 }
 
 .logout-menu{
     font-size: 14px;
-    margin-left: 3px;
 }
 
 .login-link,
@@ -45,5 +45,4 @@
     font-size: 14px;
     text-decoration: none;
     text-align: left;
-    margin: 3px;
 }

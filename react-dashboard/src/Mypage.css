@@ -21,3 +21,21 @@
     height: 200px;
     object-fit: cover;
 }
+
+.menulist-text{
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.menulist-menu{
+    margin-left: 10px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.mypage-btn{
+    width: 100%;
+    background-color: coral !important;
+    border-color: coral !important;
+}

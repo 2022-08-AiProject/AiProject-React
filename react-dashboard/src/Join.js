@@ -1,6 +1,7 @@
 import './Join.css';
 import {Form, FormGroup, Input, Label, Button, FormFeedback, FormText} from "reactstrap";
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 function Join(){
     // 뒤로가기
@@ -49,6 +50,7 @@ function Join(){
                     </Button>
                 </Form>
             </div>
+            <Footer />
         </div>
     );
 };

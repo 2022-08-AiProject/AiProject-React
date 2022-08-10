@@ -1,6 +1,7 @@
 import './Login.css';
 import {Form, FormGroup, Input, Label, Button} from "reactstrap";
 import { Link } from "react-router-dom";
+import Footer from './Footer';
 
 function Login(){
     return(
@@ -43,6 +44,7 @@ function Login(){
                     </Link>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

@@ -37,9 +37,9 @@ function Mypage(){
 
                 <ListGroupItem className='menulist-group'>
                 <CardText className="menulist-text">내가 좋아하는 메뉴</CardText>
-                <p className='menulist-menu'>menu1</p>
-                <p className='menulist-menu'>menu2</p>
-                <p className='menulist-menu'>menu3</p>
+                <p className='menulist-menu' id='mypage-menu1'>menu1</p>
+                <p className='menulist-menu' id='mypage-menu2'>menu2</p>
+                <p className='menulist-menu' id='mypage-menu3'>menu3</p>
                 </ListGroupItem>
             </ListGroup>
             <CardBody>

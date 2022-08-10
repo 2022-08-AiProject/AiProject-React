@@ -70,7 +70,7 @@ const Header = () => {
             <DropdownMenu>
               <DropdownItem header>Info</DropdownItem>
               <DropdownItem>
-                <Link to='/mypage' className="mypage-menu">My Profile</Link>
+                <Link to='/mypage' className="mypage-menu">My Page</Link>
               </DropdownItem>
               <DropdownItem className="logout-menu">Logout</DropdownItem>
             </DropdownMenu>

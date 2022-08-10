@@ -12,7 +12,7 @@ function Modify(){
                 <CardTitle tag="h5">
                     내 정보 수정
                 </CardTitle>
-            </CardBody>
+            </CardBody>s
             <ListGroup flush>
                 <ListGroupItem>
                 <span id='user-name'>이름</span>

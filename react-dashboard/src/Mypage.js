@@ -11,6 +11,9 @@ function Mypage(){
     onload = function randomImage(){ // 새로고침 시 이미지 변경
         setFood('./images/food0'+randomNumber+'.jpg');
     }
+    const changeModify= () =>{
+        document.location.href = '#/modify';
+    }
 
     return(
         <div className='mypage-div'>
@@ -43,7 +46,7 @@ function Mypage(){
                 </ListGroupItem>
             </ListGroup>
             <CardBody>
-                <Button className='mypage-btn'>수정</Button>
+                <Button className='mypage-btn' onClick={changeModify}>수정</Button>
             </CardBody>
             </Card>
         </div>

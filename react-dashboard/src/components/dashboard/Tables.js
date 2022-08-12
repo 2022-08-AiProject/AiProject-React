@@ -1,4 +1,4 @@
-import { Card, CardBody, CardTitle, CardSubtitle, Table } from "reactstrap";
+import { Card, CardBody, CardTitle, Table } from "reactstrap";
 import './Tables.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
@@ -49,7 +49,7 @@ const Tables = () => {
                     </span>
                     <CopyToClipboard text={tdata.address} onCopy={()=>alert("주소 복사 성공!")} className="copy-button">
                       {/* 복사 아이콘 */}
-                        <img className="copy-img" src="../images/copy.png" alt="복사 버튼" />
+                        <img className="copy-img" src="../images/copy.png" alt="복사 버튼" id='copy-img'/>
                     </CopyToClipboard>
                   </td>
                 </tr>

@@ -3,7 +3,52 @@ import { Card, CardBody, ButtonGroup, CardTitle, InputGroup, Button, Input, Form
 import './Map.css';
 import { useState } from "react";
 
+
 const Map = () => {
+//스크립트 파일 읽어오기
+  const new_script = src => { 
+    return new Promise((resolve, reject) => { 
+      const script = document.createElement('script'); 
+      script.src = src; 
+      script.addEventListener('load', () => { 
+        resolve(); 
+      }); 
+      script.addEventListener('error', e => { 
+        reject(e); 
+      }); 
+      document.head.appendChild(script); 
+    }); 
+  };
+
+  useState(() => { 
+    //카카오맵 스크립트 읽어오기
+    const my_script = new_script('https://dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=5824c6e33d49a063790c607abe299380');
+    // var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+    
+    //스크립트 읽기 완료 후 카카오맵 설정
+    my_script.then(() => {
+      console.log('script loaded!!!');  
+      const kakao = window['kakao']; 
+      kakao.maps.load(() => {
+        const mapContainer = document.getElementById('map');
+        const options = { 
+          center: new kakao.maps.LatLng(35.146304, 126.921031), //좌표설정
+          level: 3 
+        }; 
+        const map = new kakao.maps.Map(mapContainer, options); //맵생성
+        //마커설정
+        // var imageSize = new kakao.maps.Size(24, 35);
+        // var markerImage = new kakao.maps.MarkerImage(imageSize,imageSrc);
+        const markerPosition = new kakao.maps.LatLng(35.146304, 126.921031); 
+        const marker = new kakao.maps.Marker({ 
+          position: markerPosition
+          // image : markerImage
+        }); 
+        marker.setMap(map); 
+      });   
+    }); 
+  }, []);
+
   // 분류 체크박스
   const [cSelected, setCSelected] = useState([]);
   const onCheckboxBtnClick = (selected) => {
@@ -147,7 +192,9 @@ const Map = () => {
             </FormGroup>
           </div>
         </div>
-        <div className="map"></div>
+
+        <div id="map" className="map">
+    </div>
       </CardBody>
     </Card>
     {/* 지도 end */}

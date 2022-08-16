@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -15,7 +14,8 @@ import {
 } from "reactstrap";
 import user1 from "./assets/images/users/user.png";
 import './Header.css';
-
+import axios from "axios";
+import React, { useState, useEffect } from 'react';
 
 function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -29,8 +29,33 @@ function Header() {
   // Mypage 이동
   const changeMypage= () =>{
     document.location.href = '#/mypage';
-}
-  
+  }
+  // Login 이동
+  const changeLogin= () =>{
+    document.location.href = '#/login';
+  }
+
+  // 토큰
+  const [auth, setAuth] = useState('')
+
+  useEffect(() => {
+    if (localStorage.getItem('token') !== null) {
+      setAuth(true)
+    }
+  }, [])
+
+  // fetch to axios 수정 
+  const handleLogout = () => {
+    let token = localStorage.getItem('token')
+
+    axios.post('/api/v1/mall/auth/logout/', token)
+      .then(res => {
+        localStorage.clear()
+        // 사용하려면 App.js에서 /로 라우팅해야 한다
+        window.location.replace('/')
+      });
+  }
+
   return (
     <Navbar color="light" expand="md">
       <div className="hstack gap-2">
@@ -60,7 +85,12 @@ function Header() {
         <div className="user-div">
           {/* 로그인/회원 닉네임 */}
           <Nav className="nickname">
-            <Link to="/login" className="login-link"> User님 환영합니다! </Link>
+            { auth ? 
+            <Link to="/login" className="login-link"> 로그인하기 </Link>
+            :
+            <Link to="#/mypage" className="login-link"> User님 환영합니다! </Link>
+            }
+            
           </Nav>
           {/* 아이콘 */}
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -77,7 +107,11 @@ function Header() {
               <DropdownItem header>Info</DropdownItem>
               <DropdownItem className="mypage-menu" onClick={changeMypage}>My Page
               </DropdownItem>
-              <DropdownItem className="logout-menu">Logout</DropdownItem>
+              { auth ? 
+              <DropdownItem className="logout-menu" onClick={changeLogin}>Login</DropdownItem>
+              :
+              <DropdownItem className="logout-menu" onClick={handleLogout}>Logout</DropdownItem>
+              }
             </DropdownMenu>
           </Dropdown>
           {/* 드롭다운 종료 */}

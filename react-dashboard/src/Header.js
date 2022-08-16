@@ -19,7 +19,7 @@ function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
-  const [users, setUsers] = useState(null);
+  const [users, setUsers] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -75,7 +75,7 @@ function Header() {
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
         const response = await axios.get(
-          'http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}}
+          'http://localhost:8000/users/user/', {headers:{"Authorization": `Bearer ${token}`}}
         );
         setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
       } catch (e) {

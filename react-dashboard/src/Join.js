@@ -48,6 +48,12 @@ function Join() {
       password2: passwordCheck,
     };
 
+     // 유효성 검사
+     if(password !== password2) {
+        alert('비밀번호와 비밀번호 확인이 일치하지 않습니다')
+        return false
+      }
+
     axios
       .post("http://localhost:8000/users/register/", user)
       .then((res) => {

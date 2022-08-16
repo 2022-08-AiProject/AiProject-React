@@ -12,10 +12,10 @@ function Login(){
 
     const onChangeId = (e) => {
         setId(e.target.value);
-      };
-      const onChangePassword = (e) => {
+    };
+    const onChangePassword = (e) => {
         setPassword(e.target.value);
-      };
+    };
 
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
@@ -29,26 +29,27 @@ function Login(){
         const user = {
             username: id,
             password: password
-        };
-        fetch('http://localhost:8000/users/login/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.key) {
-                localStorage.clear();
-                localStorage.setItem('token', data.key);
-                window.location.replace('http://localhost:3000/');
-                } else {
-                setId('');
-                setPassword('');
-                localStorage.clear();
-                }
-            });
+          }
+      
+          axios.post('http://localhost:8000/users/login/', user)
+            .then(res => {
+              if (res.data.key) {
+                localStorage.clear()
+                localStorage.setItem('token', res.data.key)
+                // 사용하려면 App.js에서 /로 라우팅해야 한다
+                window.location.replace('/')
+              } else {
+                setId('')
+                setPassword('')
+                localStorage.clear()
+              }
+            })
+            .catch(err => {
+              console.clear()
+              alert('아이디 또는 비밀번호가 일치하지 않습니다')
+              setId('')
+              setPassword('')
+            })
     }
 
     return(
@@ -85,7 +86,7 @@ function Login(){
                     </Label>
                     </FormGroup>
                     {' '}
-                    <Button className='login-btn'>
+                    <Button className='login-btn' type='submit'>
                     로그인
                     </Button>
                 </Form>

@@ -167,31 +167,9 @@ const Map = () => {
     {/* 지도 */}
     <Card className="map-card">
       <CardBody>
-        <div className="map-title-div">
           <div className="map-search-div">
             <CardTitle tag="h5">맛집 찾기</CardTitle>
           </div>
-          <div className="map-option-div">
-            {/* 옵션 */}
-            <FormGroup>
-              <Input
-                id="exampleSelect"
-                name="select"
-                type="select"
-              >
-                <option selected>
-                  별점 순으로 정렬
-                </option>
-                <option>
-                  가격이 낮은 순으로 정렬
-                </option>
-                <option>
-                  거리가 가까운 순으로 정렬
-                </option>
-              </Input>
-            </FormGroup>
-          </div>
-        </div>
 
         <div id="map" className="map">
     </div>

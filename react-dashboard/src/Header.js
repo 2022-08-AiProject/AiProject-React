@@ -65,27 +65,6 @@ function Header() {
         console.log(res.data)
       })
   }
-  // useEffect(() => {
-  //   const fetchUsers = async () => {
-  //     let token = localStorage.getItem('token')
-  //     try {
-  //       // 요청이 시작 할 때에는 error 와 users 를 초기화하고
-  //       setError(null);
-  //       setUsers(null);
-  //       // loading 상태를 true 로 바꿉니다.
-  //       setLoading(true);
-  //       const response = await axios.get(
-  //         'http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}}
-  //       );
-  //       setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
-  //     } catch (e) {
-  //       setError(e);
-  //     }
-  //     setLoading(false);
-  //   };
-
-  //   fetchUsers();
-  // }, []);
 
   return (
     <Navbar color="light" expand="md">

@@ -33,14 +33,14 @@ function Join(){
                     비밀번호 확인
                     </Label>
                     <Input className="join-pwcheck" type="password"/>
-                    <Label className="join-label">
+                    {/* <Label className="join-label">
                     좋아하는 메뉴
                     </Label>
                     <div className="like-menu">
                         <Input className="like1" type="string"/>
                         <Input className="like2" type="string"/>
                         <Input className="like3" type="string"/>
-                    </div>
+                    </div> */}
                     {/* 가입 버튼 */}
                     <Button className='join-btn'>
                     회원가입

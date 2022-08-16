@@ -10,6 +10,13 @@ function Login(){
     const [id, setId] = useState(''); // 아이디
     const [password, setPassword] = useState(''); // 비밀번호
 
+    const onChangeId = (e) => {
+        setId(e.target.value);
+      };
+      const onChangePassword = (e) => {
+        setPassword(e.target.value);
+      };
+
     useEffect(() => {
         if (localStorage.getItem('token') !== null) {
             // window.location.replace('http://localhost:3000/');
@@ -55,10 +62,11 @@ function Login(){
                         id="loginId"
                         name="loginId"
                         placeholder="Id"
-                        type="text"
+                        type="string"
                         value={id}
+                        onChange={onChangeId}
                     />
-                    <Label for="loginId">
+                    <Label className="loginId">
                         아이디
                     </Label>
                     </FormGroup>
@@ -70,8 +78,9 @@ function Login(){
                         placeholder="Password"
                         type="password"
                         value={password}
+                        onChange={onChangePassword}
                     />
-                    <Label for="loginPassword">
+                    <Label className="loginPassword">
                         비밀번호
                     </Label>
                     </FormGroup>

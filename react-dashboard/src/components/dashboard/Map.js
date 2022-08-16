@@ -118,14 +118,6 @@ const Map = () => {
         >
           분식
         </Button>
-        <Button
-          // color="primary"
-          outline
-          onClick={() => onCheckboxBtnClick(6)}
-          active={cSelected.includes(6)}
-        >
-          기타
-        </Button>
       </ButtonGroup>
       {/* 분류 버튼 end */}
       {/* 가격 버튼*/}

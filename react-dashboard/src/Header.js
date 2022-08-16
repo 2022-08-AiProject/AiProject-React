@@ -48,7 +48,7 @@ function Header() {
   const handleLogout = () => {
     let token = localStorage.getItem('token')
 
-    axios.post('/api/v1/mall/auth/logout/', token)
+    axios.post('http://localhost:8000/users/logout/', token)
       .then(res => {
         localStorage.clear()
         // 사용하려면 App.js에서 /로 라우팅해야 한다
@@ -88,7 +88,7 @@ function Header() {
             { auth ? 
             <Link to="/login" className="login-link"> 로그인하기 </Link>
             :
-            <Link to="#/mypage" className="login-link"> User님 환영합니다! </Link>
+            <Link to="#/mypage" className="login-link"> {token}님 환영합니다! </Link>
             }
             
           </Nav>

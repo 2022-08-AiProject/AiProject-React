@@ -16,7 +16,8 @@ import {
 import user1 from "./assets/images/users/user.png";
 import './Header.css';
 
-const Header = () => {
+
+function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 

@@ -4,8 +4,6 @@ import {
   Collapse,
   Nav,
   NavItem,
-  NavbarBrand,
-  UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
@@ -56,6 +54,15 @@ function Header() {
       });
   }
 
+  const userName = () => {
+    let token = localStorage.getItem('token')
+    axios.get('http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}})
+      .then(res => {
+        console.log(res.data)
+      })
+  }
+  
+
   return (
     <Navbar color="light" expand="md">
       <div className="hstack gap-2">
@@ -88,7 +95,7 @@ function Header() {
             { auth ? 
             <Link to="/login" className="login-link"> 로그인하기 </Link>
             :
-            <Link to="#/mypage" className="login-link"> {token}님 환영합니다! </Link>
+            <Link to="#/mypage" className="login-link"> {userName}님 환영합니다! </Link>
             }
             
           </Nav>

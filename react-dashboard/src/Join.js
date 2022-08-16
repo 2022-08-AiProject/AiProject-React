@@ -42,10 +42,10 @@ function Join() {
     e.preventDefault();
 
     const user = {
-      name: name,
-      id: id,
+      last_name: name,
+      username: id,
       password: password,
-      passwordCheck: passwordCheck,
+      password2: passwordCheck,
     };
 
     axios

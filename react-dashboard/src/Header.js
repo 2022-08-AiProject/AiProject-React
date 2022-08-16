@@ -19,9 +19,9 @@ function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
-  const [users, setUsers] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [users, setUsers] = useState("");
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
 
   const toggle = () => setDropdownOpen((prevState) => !prevState);
   const Handletoggle = () => {
@@ -58,36 +58,34 @@ function Header() {
       });
   }
 
-  // const userName = () => {
-  //   let token = localStorage.getItem('token')
-  //   axios.get('http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}})
-  //     .then(res => {
-  //       console.log(res.data)
-  //     })
-  // }
-  useEffect(() => {
-    const fetchUsers = async () => {
-      let token = localStorage.getItem('token')
-      try {
-        // 요청이 시작 할 때에는 error 와 users 를 초기화하고
-        setError(null);
-        setUsers(null);
-        // loading 상태를 true 로 바꿉니다.
-        setLoading(true);
-        const response = await axios.get(
-          'http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}}
-        );
-        setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
+  const getUser = () => {
+    let token = localStorage.getItem('token')
+    axios.get('http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}})
+      .then(res => {
+        console.log(res.data)
+      })
+  }
+  // useEffect(() => {
+  //   const fetchUsers = async () => {
+  //     let token = localStorage.getItem('token')
+  //     try {
+  //       // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+  //       setError(null);
+  //       setUsers(null);
+  //       // loading 상태를 true 로 바꿉니다.
+  //       setLoading(true);
+  //       const response = await axios.get(
+  //         'http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}}
+  //       );
+  //       setUsers(response.data); // 데이터는 response.data 안에 들어있습니다.
+  //     } catch (e) {
+  //       setError(e);
+  //     }
+  //     setLoading(false);
+  //   };
 
-    fetchUsers();
-  }, []);
-
-  
+  //   fetchUsers();
+  // }, []);
 
   return (
     <Navbar color="light" expand="md">
@@ -121,7 +119,7 @@ function Header() {
             { auth ? 
             <Link to="/login" className="login-link"> 로그인하기 </Link>
             :
-            <Link to="#/mypage" className="login-link"> {users.last_name}님 환영합니다! </Link>
+            <Link to="#/mypage" className="login-link"> {getUser.last_name}님 환영합니다! </Link>
             }
             
           </Nav>

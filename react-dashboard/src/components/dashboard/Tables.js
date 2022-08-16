@@ -1,4 +1,4 @@
-import { Card, CardBody, CardTitle, Table } from "reactstrap";
+import { Card, CardBody, CardTitle, Table, FormGroup, Input } from "reactstrap";
 import './Tables.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
@@ -19,7 +19,31 @@ const Tables = () => {
     <div>
       <Card className="table-card">
         <CardBody>
-          <CardTitle tag="h5">추천 식당 목록</CardTitle>
+          <div className="table-title-div">
+            <div className='card-title-div'>
+              <CardTitle tag="h5">추천 식당 목록</CardTitle>
+            </div>
+            <div className="map-option-div">
+              {/* 옵션 */}
+              <FormGroup>
+                <Input
+                  id="exampleSelect"
+                  name="select"
+                  type="select"
+                >
+                  <option selected>
+                    별점 순으로 정렬
+                  </option>
+                  <option>
+                    가격이 낮은 순으로 정렬
+                  </option>
+                  <option>
+                    거리가 가까운 순으로 정렬
+                  </option>
+                </Input>
+              </FormGroup>
+            </div>
+          </div>
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <thead>
               <tr>

@@ -3,6 +3,14 @@
     width: 12px;
 }
 
+.table-title-div{
+    display: flex;
+}
+
+.card-title-div{
+    width: 50%;
+}
+
 @media (max-width: 1025px) {
     .table-card{
         width: 100%;

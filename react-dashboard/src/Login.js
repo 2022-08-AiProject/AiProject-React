@@ -2,20 +2,61 @@ import './Login.css';
 import {Form, FormGroup, Input, Label, Button} from "reactstrap";
 import { Link } from "react-router-dom";
 import Footer from './Footer';
+import axios from "axios";
+import React, { useState, useEffect } from 'react';
 
 function Login(){
+    // django 연결
+    const [id, setId] = useState(''); // 아이디
+    const [password, setPassword] = useState(''); // 비밀번호
+
+    useEffect(() => {
+        if (localStorage.getItem('token') !== null) {
+            // window.location.replace('http://localhost:3000/');
+          }
+    }, []);
+
+    const onSubmit = e => {
+        e.preventDefault();
+
+        const user = {
+            username: id,
+            password: password
+        };
+        fetch('http://localhost:8000/users/login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.key) {
+                localStorage.clear();
+                localStorage.setItem('token', data.key);
+                window.location.replace('http://localhost:3000/');
+                } else {
+                setId('');
+                setPassword('');
+                localStorage.clear();
+                }
+            });
+    }
+
     return(
         <div className="login-div">
             <div className="form-div">
                 <h5>로그인</h5>
                 <hr />
-                <Form inline>
+                <Form inline onSubmit={onSubmit}>
                     <FormGroup floating>
                     <Input
                         id="loginId"
                         name="loginId"
                         placeholder="Id"
                         type="text"
+                        value={id}
                     />
                     <Label for="loginId">
                         아이디
@@ -28,6 +69,7 @@ function Login(){
                         name="loginPassword"
                         placeholder="Password"
                         type="password"
+                        value={password}
                     />
                     <Label for="loginPassword">
                         비밀번호

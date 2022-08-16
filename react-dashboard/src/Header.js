@@ -37,6 +37,11 @@ function Header() {
     document.location.href = '#/login';
   }
 
+  // 알림창
+  const alertLogin= () => {
+    alert('먼저 로그인 해주세요.');
+  }
+
   // 토큰
   const [auth, setAuth] = useState('')
 
@@ -115,8 +120,12 @@ function Header() {
             {/* 아이콘 드롭다운 */}
             <DropdownMenu>
               <DropdownItem header>Info</DropdownItem>
-              <DropdownItem className="mypage-menu" onClick={changeMypage}>My Page
-              </DropdownItem>
+              { auth ? 
+              <DropdownItem className="mypage-menu" onClick={alertLogin}>My Page</DropdownItem>
+              :
+              <DropdownItem className="mypage-menu" onClick={changeMypage}>My Page</DropdownItem>
+              }
+              
               { auth ? 
               <DropdownItem className="logout-menu" onClick={changeLogin}>Login</DropdownItem>
               :

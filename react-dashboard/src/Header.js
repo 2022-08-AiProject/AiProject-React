@@ -80,6 +80,7 @@ function Header() {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
+        setUsername(res.data)
         console.log("username >>>>" + res.data);
       });
   });

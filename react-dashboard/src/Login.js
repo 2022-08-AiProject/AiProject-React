@@ -34,9 +34,10 @@ function Login() {
     axios
       .post("http://localhost:8000/users/login/", user)
       .then((res) => {
-        if (res.data.key) {
+        if (res.data.token) {
+          console.log(res.data.token);
           localStorage.clear();
-          localStorage.setItem("token", res.data.key);
+          localStorage.setItem("token", res.data.token);
           // 사용하려면 App.js에서 /로 라우팅해야 한다
           window.location.replace("/");
         } else {

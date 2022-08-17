@@ -15,7 +15,7 @@ import "./Header.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
-function Header(props) {
+function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
@@ -43,11 +43,15 @@ function Header(props) {
   };
 
   // 토큰
-  const [auth, setAuth] = useState("");
+  let token = localStorage.getItem("token");
+  const [auth, setAuth] = useState(token);
+  console.log("token: " + auth);
 
   useEffect(() => {
     if (localStorage.getItem("token") !== null) {
       setAuth(true);
+    } else {
+      setAuth(false);
     }
   }, []);
 
@@ -56,11 +60,10 @@ function Header(props) {
     // let token = localStorage.getItem('token')
 
     axios.get("http://localhost:8000/users/logout/").then((res) => {
-      if (res.data.success) {
-        props.history.push("/");
-      } else {
-        alert("로그아웃 실패");
-      }
+      localStorage.removeItem("token");
+      setAuth(false);
+      console.log("logout : " + auth);
+      window.location.replace("/");
       // localStorage.clear()
       // // 사용하려면 App.js에서 /로 라우팅해야 한다
       // window.location.replace('/')
@@ -108,14 +111,14 @@ function Header(props) {
           {/* 로그인/회원 닉네임 */}
           <Nav className="nickname">
             {auth ? (
-              <Link to="/login" className="login-link">
-                {" "}
-                로그인하기{" "}
-              </Link>
-            ) : (
               <Link to="#/mypage" className="login-link">
                 {" "}
                 {getUser.last_name}님 환영합니다!{" "}
+              </Link>
+            ) : (
+              <Link to="/login" className="login-link">
+                {" "}
+                로그인하기{" "}
               </Link>
             )}
           </Nav>
@@ -133,22 +136,22 @@ function Header(props) {
             <DropdownMenu>
               <DropdownItem header>Info</DropdownItem>
               {auth ? (
-                <DropdownItem className="mypage-menu" onClick={alertLogin}>
+                <DropdownItem className="mypage-menu" onClick={changeMypage}>
                   My Page
                 </DropdownItem>
               ) : (
-                <DropdownItem className="mypage-menu" onClick={changeMypage}>
+                <DropdownItem className="mypage-menu" onClick={alertLogin}>
                   My Page
                 </DropdownItem>
               )}
 
               {auth ? (
-                <DropdownItem className="logout-menu" onClick={changeLogin}>
-                  Login
-                </DropdownItem>
-              ) : (
                 <DropdownItem className="logout-menu" onClick={handleLogout}>
                   Logout
+                </DropdownItem>
+              ) : (
+                <DropdownItem className="logout-menu" onClick={changeLogin}>
+                  Login
                 </DropdownItem>
               )}
             </DropdownMenu>

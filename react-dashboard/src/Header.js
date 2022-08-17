@@ -11,11 +11,11 @@ import {
   Button,
 } from "reactstrap";
 import user1 from "./assets/images/users/user.png";
-import './Header.css';
+import "./Header.css";
 import axios from "axios";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-function Header(props) {
+function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
@@ -29,55 +29,60 @@ function Header(props) {
   };
 
   // Mypage 이동
-  const changeMypage= () =>{
-    document.location.href = '#/mypage';
-  }
+  const changeMypage = () => {
+    document.location.href = "#/mypage";
+  };
   // Login 이동
-  const changeLogin= () =>{
-    document.location.href = '#/login';
-  }
+  const changeLogin = () => {
+    document.location.href = "#/login";
+  };
 
   // 알림창
-  const alertLogin= () => {
-    alert('먼저 로그인 해주세요.');
-  }
+  const alertLogin = () => {
+    alert("먼저 로그인 해주세요.");
+  };
 
   // 토큰
-  const [auth, setAuth] = useState('')
+  let token = localStorage.getItem("token");
+  const [auth, setAuth] = useState(token);
+  console.log("token: " + auth);
 
   useEffect(() => {
-    if (localStorage.getItem('token') !== null) {
-      setAuth(true)
+    if (localStorage.getItem("token") !== null) {
+      setAuth(true);
+    } else {
+      setAuth(false);
     }
-  }, [])
+  }, []);
 
-  // fetch to axios 수정 
+  // fetch to axios 수정
   const handleLogout = () => {
     // let token = localStorage.getItem('token')
 
-    axios.get('http://localhost:8000/users/logout/')
-      .then(res => {
-        if(res.data.success){
-          props.history.push('/');
-        } else {
-          alert('로그아웃 실패');
-        }
-        // localStorage.clear()
-        // // 사용하려면 App.js에서 /로 라우팅해야 한다
-        // window.location.replace('/')
-      });
-  }
+    axios.get("http://localhost:8000/users/logout/").then((res) => {
+      localStorage.removeItem("token");
+      setAuth(false);
+      console.log("logout : " + auth);
+      window.location.replace("/");
+      // localStorage.clear()
+      // // 사용하려면 App.js에서 /로 라우팅해야 한다
+      // window.location.replace('/')
+    });
+  };
 
   // 유저 이름
   const [username, setUsername] = useState("User");
 
-  const getUser = () => {
-    let token = localStorage.getItem('token')
-    axios.get('http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}})
-      .then(res => {
-        console.log(res.data)
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    axios
+      .get("http://localhost:8000/users/user", {
+        headers: { Authorization: `Bearer ${token}` },
       })
-  }
+      .then((res) => {
+        console.log("username >>>>" + res.data);
+      });
+  });
 
   return (
     <Navbar color="light" expand="md">
@@ -108,12 +113,15 @@ function Header(props) {
         <div className="user-div">
           {/* 로그인/회원 닉네임 */}
           <Nav className="nickname">
-            { auth ? 
-            <Link to="/login" className="login-link"> 로그인하기 </Link>
-            :
-            <Link to="#/mypage" className="login-link"> {username}님 환영합니다! </Link>
-            }
-            
+            {auth ? (
+              <Link to="#/mypage" className="login-link">
+                {username}님 환영합니다!
+              </Link>
+            ) : (
+              <Link to="/login" className="login-link">
+                로그인하기
+              </Link>
+            )}
           </Nav>
           {/* 아이콘 */}
           <Dropdown isOpen={dropdownOpen} toggle={toggle}>
@@ -128,17 +136,25 @@ function Header(props) {
             {/* 아이콘 드롭다운 */}
             <DropdownMenu>
               <DropdownItem header>Info</DropdownItem>
-              { auth ? 
-              <DropdownItem className="mypage-menu" onClick={alertLogin}>My Page</DropdownItem>
-              :
-              <DropdownItem className="mypage-menu" onClick={changeMypage}>My Page</DropdownItem>
-              }
-              
-              { auth ? 
-              <DropdownItem className="logout-menu" onClick={changeLogin}>Login</DropdownItem>
-              :
-              <DropdownItem className="logout-menu" onClick={handleLogout}>Logout</DropdownItem>
-              }
+              {auth ? (
+                <DropdownItem className="mypage-menu" onClick={changeMypage}>
+                  My Page
+                </DropdownItem>
+              ) : (
+                <DropdownItem className="mypage-menu" onClick={alertLogin}>
+                  My Page
+                </DropdownItem>
+              )}
+
+              {auth ? (
+                <DropdownItem className="logout-menu" onClick={handleLogout}>
+                  Logout
+                </DropdownItem>
+              ) : (
+                <DropdownItem className="logout-menu" onClick={changeLogin}>
+                  Login
+                </DropdownItem>
+              )}
             </DropdownMenu>
           </Dropdown>
           {/* 드롭다운 종료 */}
@@ -146,6 +162,6 @@ function Header(props) {
       </Collapse>
     </Navbar>
   );
-};
+}
 
 export default Header;

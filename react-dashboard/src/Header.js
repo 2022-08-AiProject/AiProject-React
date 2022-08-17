@@ -15,7 +15,7 @@ import './Header.css';
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 
-function Header() {
+function Header(props) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
 
@@ -53,13 +53,18 @@ function Header() {
 
   // fetch to axios 수정 
   const handleLogout = () => {
-    let token = localStorage.getItem('token')
+    // let token = localStorage.getItem('token')
 
-    axios.post('http://localhost:8000/users/logout/', token)
+    axios.get('http://localhost:8000/users/logout/')
       .then(res => {
-        localStorage.clear()
-        // 사용하려면 App.js에서 /로 라우팅해야 한다
-        window.location.replace('/')
+        if(res.data.success){
+          props.history.push('/');
+        } else {
+          alert('로그아웃 실패');
+        }
+        // localStorage.clear()
+        // // 사용하려면 App.js에서 /로 라우팅해야 한다
+        // window.location.replace('/')
       });
   }
 

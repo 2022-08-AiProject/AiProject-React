@@ -1,12 +1,9 @@
 import "./Join.css";
 import {
   Form,
-  FormGroup,
   Input,
   Label,
   Button,
-  FormFeedback,
-  FormText,
 } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";

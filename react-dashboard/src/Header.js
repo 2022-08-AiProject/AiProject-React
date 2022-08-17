@@ -68,6 +68,9 @@ function Header(props) {
       });
   }
 
+  // 유저 이름
+  const [username, setUsername] = useState("User");
+
   const getUser = () => {
     let token = localStorage.getItem('token')
     axios.get('http://localhost:8000/users/user', {headers:{"Authorization": `Bearer ${token}`}})
@@ -108,7 +111,7 @@ function Header(props) {
             { auth ? 
             <Link to="/login" className="login-link"> 로그인하기 </Link>
             :
-            <Link to="#/mypage" className="login-link"> {getUser.last_name}님 환영합니다! </Link>
+            <Link to="#/mypage" className="login-link"> {username}님 환영합니다! </Link>
             }
             
           </Nav>

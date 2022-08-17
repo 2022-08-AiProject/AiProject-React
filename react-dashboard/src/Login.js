@@ -30,7 +30,8 @@ function Login() {
       username: id,
       password: password,
     };
-
+    
+    // 로그인 
     axios
       .post("http://localhost:8000/users/login/", user)
       .then((res) => {
@@ -53,6 +54,19 @@ function Login() {
         setId("");
         setPassword("");
       });
+
+      // userId 변수에 저장
+      let userId = localStorage.getItem("userId");
+      // userId 전송
+      axios
+        .post("http://localhost:8000/users/#", { // 장고 주소 적어야함
+          username: userId, // 장고의 username = userId
+        })
+        .then((res) => {
+          console.log('userId 전송 완료 >>> '+userId);
+        }).catch((err) => {
+          alert("아이디 전송 실패");
+        });
   };
 
   return (

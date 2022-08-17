@@ -70,23 +70,9 @@ function Header() {
     });
   };
 
-  // 유저 이름
-  const [username, setUsername] = useState("User");
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/users/user", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        setUsername(res.data);
-        console.log("username >>>>" + res.data);
-      });
-  });
-
   // userId 출력
   console.log("userId >>> " + localStorage.getItem("userId"));
-  let userId = localStorage.getItem("userId");
+  let userId = localStorage.getItem("userId"); // userId 저장
 
   return (
     <Navbar color="light" expand="md">

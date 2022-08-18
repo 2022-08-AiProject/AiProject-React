@@ -1,6 +1,7 @@
 import { Card, CardBody, CardTitle, Table, FormGroup, Input } from "reactstrap";
 import './Tables.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import React, { useState, useEffect } from "react";
 
 // 표 내용
 const tableData = [
@@ -13,7 +14,19 @@ const tableData = [
   }
 ];
 
+
+
 const Tables = () => {
+  // 토큰
+  let token = localStorage.getItem("token");
+  const [auth, setAuth] = useState(token);
+  useEffect(() => { // 토큰 값이 있으면(로그인 상태면) auth값을 true로 변경
+    if (localStorage.getItem("token") !== null) {
+      setAuth(true);
+    } else {
+      setAuth(false);
+    }
+  }, []);
 
   return (
     <div>
@@ -25,23 +38,37 @@ const Tables = () => {
             </div>
             <div className="map-option-div">
               {/* 옵션 */}
-              <FormGroup>
-                <Input
-                  id="exampleSelect"
-                  name="select"
-                  type="select"
-                >
-                  <option selected>
-                    별점 순으로 정렬
-                  </option>
-                  <option>
-                    가격이 낮은 순으로 정렬
-                  </option>
-                  <option>
-                    거리가 가까운 순으로 정렬
-                  </option>
-                </Input>
+              {auth ? (
+                <FormGroup>
+                  <Input
+                    id="exampleSelect"
+                    name="select"
+                    type="select"
+                  >
+                    <option selected>
+                      별점 순으로 정렬
+                    </option>
+                    <option>
+                      가격이 낮은 순으로 정렬
+                    </option>
+                    <option>
+                      거리가 가까운 순으로 정렬
+                    </option>
+                  </Input>
+                </FormGroup>
+              ) : ( // 로그인 하지 않았을 때 옵션 목록
+                <FormGroup>
+                  <Input
+                    id="exampleSelect"
+                    name="select"
+                    type="select"
+                  >
+                    <option selected>
+                      로그인 후 이용 가능합니다
+                    </option>
+                  </Input>
               </FormGroup>
+              )}
             </div>
           </div>
           <Table className="no-wrap mt-3 align-middle" responsive borderless>

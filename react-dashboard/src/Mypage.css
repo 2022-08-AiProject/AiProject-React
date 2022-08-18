@@ -43,3 +43,13 @@
     background-color: coral !important;
     border-color: coral !important;
 }
+
+.leave-link{
+    color:gray;
+    font-size:10px;
+    margin-top: 5px;
+}
+
+.leave-btn-div{
+    display: flex;
+}

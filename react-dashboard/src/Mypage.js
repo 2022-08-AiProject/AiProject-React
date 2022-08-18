@@ -1,7 +1,9 @@
 import {Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem, Button} from "reactstrap";
 import './Mypage.css';
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Footer from './Footer';
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Mypage(){
     // 이미지 랜덤 출력 기능
@@ -14,6 +16,36 @@ function Mypage(){
     const changeModify= () =>{
         document.location.href = '#/modify';
     }
+
+    // 회원 탈퇴 기능
+    const leaveService = () =>{
+        console.log('회원 탈퇴하기');
+    }
+
+    // 유저 아이디
+    let userId = localStorage.getItem("userId"); 
+    // 마이페이지 정보
+    const [name, setName] = useState("이름");
+    const [id, setId] = useState("testId");
+    const [menu1, setMenu1] = useState("좋아하는 메뉴 1");
+    const [menu2, setMenu2] = useState("좋아하는 메뉴 2");
+    const [menu3, setMenu3] = useState("좋아하는 메뉴 3");
+    // 마이페이지 연결
+    useEffect(() => {
+        axios
+            .get("http://localhost:8000/users/mypage/"+userId, { // 장고 주소 적어야함
+            username: userId, // 장고의 username = userId
+            })
+            .then((res) => {
+            console.log('mypage >>> '+res.data);
+            // 데이터 출력 확인 후 set~으로 정보 채워주기
+            })
+            .catch(function (error) {
+                // 에러 핸들링
+                console.log(error);
+            });
+    }, []);
+    
 
     return(
         <div>
@@ -33,23 +65,26 @@ function Mypage(){
                 </div>
                 <ListGroup flush>
                     <ListGroupItem>
-                    <span id='user-name'>이름</span>
+                    <span id='user-name'>{name}</span>
                     <span className='bracket'>&#40;</span>
-                    <span id='user-id'>testId</span>
+                    <span id='user-id'>{id}</span>
                     <span className='bracket'>&#41;</span>
                     </ListGroupItem>
 
                     <ListGroupItem className='menulist-group'>
                     <CardText className="menulist-text">내가 좋아하는 메뉴</CardText>
-                    <p className='menulist-menu' id='mypage-menu1'>menu1</p>
-                    <p className='menulist-menu' id='mypage-menu2'>menu2</p>
-                    <p className='menulist-menu' id='mypage-menu3'>menu3</p>
+                    <p className='menulist-menu' id='mypage-menu1'>{menu1}</p>
+                    <p className='menulist-menu' id='mypage-menu2'>{menu2}</p>
+                    <p className='menulist-menu' id='mypage-menu3'>{menu3}</p>
                     </ListGroupItem>
                 </ListGroup>
                 <CardBody>
                     <Button className='mypage-btn' onClick={changeModify}>수정</Button>
                 </CardBody>
                 </Card>
+            </div>
+            <div className="leave-btn-div">
+                <span className="leave-link" onClick={leaveService}>탈퇴하기</span>
             </div>
             <Footer />
         </div>

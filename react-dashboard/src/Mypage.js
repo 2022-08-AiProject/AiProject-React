@@ -3,6 +3,7 @@ import './Mypage.css';
 import React, {useState, useEffect} from "react";
 import Footer from './Footer';
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Mypage(){
     // 이미지 랜덤 출력 기능
@@ -14,6 +15,11 @@ function Mypage(){
     }
     const changeModify= () =>{
         document.location.href = '#/modify';
+    }
+
+    // 회원 탈퇴 기능
+    const leaveService = () =>{
+        console.log('회원 탈퇴하기');
     }
 
     // 유저 아이디
@@ -33,6 +39,10 @@ function Mypage(){
             .then((res) => {
             console.log('mypage >>> '+res.data);
             // 데이터 출력 확인 후 set~으로 정보 채워주기
+            })
+            .catch(function (error) {
+                // 에러 핸들링
+                console.log(error);
             });
     }, []);
     
@@ -72,6 +82,9 @@ function Mypage(){
                     <Button className='mypage-btn' onClick={changeModify}>수정</Button>
                 </CardBody>
                 </Card>
+            </div>
+            <div className="leave-btn-div">
+                <span className="leave-link" onClick={leaveService}>탈퇴하기</span>
             </div>
             <Footer />
         </div>

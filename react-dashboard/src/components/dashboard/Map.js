@@ -2,18 +2,25 @@ import { Card, CardBody, ButtonGroup, CardTitle, InputGroup, Button, Input, Form
 // import "../assets/scss/style.scss";
 import './Map.css';
 import { useState } from "react";
+import axios from "axios";
 
 var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
-var test = ['광주광역시 북구 풍향동 579-5 1층	','광주광역시 남구 방림동 536-35 미래샷시 536-35 미래샷시 1층','광주 동구 지산동 694-33번지 1층'];
-var test1 = ['광주광역시 동구 서석동 422-17','광주광역시 동구 산수동 553-34 1층','광주광역시 동구 금동 8-11 1층'];
+var test = ['광주광역시 동구 학동 31-31 1,2층	','광주광역시 남구 방림동 536-35 미래샷시 536-35 미래샷시 1층','광주 동구 지산동 694-33번지 1층'];
+var test1 = ['광주 동구 지산동 502-1','광주광역시 동구 학동 768 평화맨션','광주광역시 동구 계림동 505-900 홈플러스 광주계림점'];
 var markers = []
+// 컬럼'location'가져오기
+
+
+
+
 function setMarkers(map) {
   for (var i = 0; i < markers.length; i++) {
       markers[i].setMap(map);
   }            
 }
 function addMarker(coords,map,kakao) {
+
   var imageSize = new kakao.maps.Size(24, 35);
   var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);  
   var marker = new kakao.maps.Marker({
@@ -68,7 +75,7 @@ const Map = () => {
           var s = document.getElementById("search");
           s.addEventListener("click", searchfood);
           function searchfood() { 
-            setMarkers(null);     
+            setMarkers(null);
             console.log('script1 loaded!!!'); 
             for (var adresslist in test){
             geocoder.addressSearch(test[adresslist], function(result, status) {
@@ -95,6 +102,10 @@ const Map = () => {
                     lon = position.coords.longitude; // 경도
                 var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
                 map.setCenter(locPosition);
+                var marker1 = new kakao.maps.Marker({
+                  position: locPosition
+              });
+              marker1.setMap(map);
                   for (var adresslist in test1){
                     geocoder.addressSearch(test1[adresslist], function(result, status) {
                     // 정상적으로 검색이 완료됐으면 

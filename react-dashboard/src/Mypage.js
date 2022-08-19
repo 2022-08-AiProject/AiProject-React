@@ -23,17 +23,17 @@ function Mypage(){
     }
 
     // 유저 아이디
-    let userId = localStorage.getItem("userId"); 
+    let userId = localStorage.getItem('userId'); 
     // 마이페이지 정보
-    const [name, setName] = useState("이름");
-    const [id, setId] = useState("testId");
+    const [name, setName] = useState("name");
+    const [id, setId] = useState(userId);
     const [menu1, setMenu1] = useState("좋아하는 메뉴 1");
     const [menu2, setMenu2] = useState("좋아하는 메뉴 2");
     const [menu3, setMenu3] = useState("좋아하는 메뉴 3");
     // 마이페이지 연결
     useEffect(() => {
         axios
-            .get("http://localhost:8000/users/mypage/"+userId, { // 장고 주소 적어야함
+            .get("http://localhost:8000/users/user/"+userId, { // 장고 주소 적어야함
             username: userId, // 장고의 username = userId
             })
             .then((res) => {

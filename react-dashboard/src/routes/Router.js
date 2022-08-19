@@ -27,8 +27,8 @@ const ThemeRoutes = [
     path: "/",
     element: <FullLayout />,
     children: [
-      { path: "/", element: <Navigate to="/starter" /> },
-      { path: "/starter", exact: true, element: <Starter /> },
+      { path: "/", element: <Navigate to="/starter" /> },//메인
+      { path: "/starter", exact: true, element: <Starter /> },//메인
       { path: "/about", exact: true, element: <About /> },
       { path: "/alerts", exact: true, element: <Alerts /> },
       { path: "/badges", exact: true, element: <Badges /> },
@@ -38,10 +38,10 @@ const ThemeRoutes = [
       { path: "/table", exact: true, element: <Tables /> },
       { path: "/forms", exact: true, element: <Forms /> },
       { path: "/breadcrumbs", exact: true, element: <Breadcrumbs /> },
-      { path: "/login", exact: true, element: <Login /> },
-      { path: "/join", exact: true, element: <Join /> },
-      { path: "/mypage", exact: true, element: <Mypage /> },
-      { path: "/modify", exact: true, element: <Modify /> },
+      { path: "/login", exact: true, element: <Login /> },//로그인화면
+      { path: "/join", exact: true, element: <Join /> },//회원가입
+      { path: "/mypage", exact: true, element: <Mypage /> },//마이페이지
+      { path: "/modify", exact: true, element: <Modify /> },//회원정보수정
     ],
   },
 ];

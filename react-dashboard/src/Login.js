@@ -36,7 +36,7 @@ function Login() {
       .post("http://localhost:8000/users/login/", user)
       .then((res) => {
         if (res.data.token) {
-          //   console.log(res.data);
+            console.log(res.data);
           localStorage.clear();
           localStorage.setItem("token", res.data.token);
           // 사용하려면 App.js에서 /로 라우팅해야 한다

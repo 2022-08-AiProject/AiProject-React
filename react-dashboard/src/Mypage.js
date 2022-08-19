@@ -26,10 +26,10 @@ function Mypage(){
     let userId = localStorage.getItem("userId"); 
     // 마이페이지 정보
     const [name, setName] = useState("이름");
-    const [id, setId] = useState("testId");
-    const [menu1, setMenu1] = useState("좋아하는 메뉴 1");
-    const [menu2, setMenu2] = useState("좋아하는 메뉴 2");
-    const [menu3, setMenu3] = useState("좋아하는 메뉴 3");
+    const [id, setId] = useState("인공지능");
+    const [menu1, setMenu1] = useState("보쌈");
+    const [menu2, setMenu2] = useState("피자치킨");
+    const [menu3, setMenu3] = useState("족발");
     // 마이페이지 연결
     useEffect(() => {
         axios

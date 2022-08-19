@@ -20,7 +20,7 @@ function setMarkers(map) {
   }            
 }
 function addMarker(coords,map,kakao) {
-
+  var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
   var imageSize = new kakao.maps.Size(24, 35);
   var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);  
   var marker = new kakao.maps.Marker({
@@ -101,11 +101,12 @@ const Map = () => {
                 var lat = position.coords.latitude, // 위도
                     lon = position.coords.longitude; // 경도
                 var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                map.setCenter(locPosition);
-                var marker1 = new kakao.maps.Marker({
+                var marker = new kakao.maps.Marker({
                   position: locPosition
-              });
-              marker1.setMap(map);
+                });
+                marker.setMap(map);
+                map.setCenter(locPosition);
+
                   for (var adresslist in test1){
                     geocoder.addressSearch(test1[adresslist], function(result, status) {
                     // 정상적으로 검색이 완료됐으면 

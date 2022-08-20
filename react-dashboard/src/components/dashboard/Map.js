@@ -218,28 +218,28 @@ const Map = () => {
           onClick={() => setRSelected(1)}
           active={rSelected === 1}
         >
-          1만원
+          7,000원
         </Button>
         <Button
           outline
           onClick={() => setRSelected(2)}
           active={rSelected === 2}
         >
-          2만원
+          15,000원
         </Button>
         <Button
           outline
           onClick={() => setRSelected(3)}
           active={rSelected === 3}
         >
-          3만원
+          25,000원
         </Button>
         <Button
           outline
           onClick={() => setRSelected(4)}
           active={rSelected === 4}
         >
-          3만원 이상
+          25,000원 이상
         </Button>
       </ButtonGroup>
       {/* 임시 출력용 */}

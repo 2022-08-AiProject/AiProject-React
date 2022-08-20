@@ -9,15 +9,11 @@ var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerS
 var test = ['광주광역시 동구 학동 31-31 1,2층	','광주광역시 남구 방림동 536-35 미래샷시 536-35 미래샷시 1층','광주 동구 지산동 694-33번지 1층'];
 var test1 = ['광주 동구 지산동 502-1','광주광역시 동구 학동 768 평화맨션','광주광역시 동구 계림동 505-900 홈플러스 광주계림점'];
 
-
-
-
-
-
+var markers = [];
 // 리스트 값 확인
-for (var i=0; i<foodname.length;i++){
-  console.log("["+i+1+"]"+foodname[i]);
-}
+// for (var i=0; i<foodname.length;i++){
+//   console.log("["+i+1+"]"+foodname[i]);
+// }
 // if test2[price] < 15000 {
 //   test3.push(test2[price])
 // }

@@ -11,7 +11,7 @@ var price = [];
 var score = [];
 var location = [];
 var category = [];
-var markers = [];
+
 // 컬럼'location'가져오기
 
 axios.get('http://localhost:8000/users/menu/')

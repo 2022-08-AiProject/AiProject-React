@@ -2,6 +2,37 @@ import { Card, CardBody, CardTitle, Table, FormGroup, Input } from "reactstrap";
 import './Tables.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+
+var name = [];
+var foodname = [];
+var price = [];
+var score = [];
+var location = [];
+var category = [];
+var markers = [];
+// 컬럼'location'가져오기
+
+axios.get('http://localhost:8000/users/menu/')
+.then((response)=>{
+  // test2.push(response)
+  console.log(response.data[0].foodname);
+  // console.log(response.data[0].foodname);
+  // for (시작할 값 ; 끝날 값 ; 증가/감소량)
+  for (var i=0; i<response.data.length;i++){
+    name.push(response.data[i].name);
+    foodname.push(response.data[i].foodname);
+    price.push(response.data[i].price);
+    // score.push(response.data[i].score);
+    // location.push(response.data[i].location);
+    // category.push(response.data[i].category);
+    // console.log("["+i+"]"+foodname[i])
+  }
+}).catch((error)=>{
+  console.log(error);
+})
+
 
 // 표 내용
 const tableData = [
@@ -11,10 +42,27 @@ const tableData = [
     score: "★ 4.5",
     name: "식당명",
     address: "광주 동구 동명동 73-18"
+  },
+  {
+    menu: "메뉴2",
+    price: "14,000 ₩",
+    score: "★ 4.5",
+    name: "식당명",
+    address: "광주 동구 동명동 73-18"
   }
 ];
 
-
+// const tableData = [
+//   for (var i=0; i<5; i==){
+//     {
+//       menu: foodname[i],
+//       price: "14,000 ₩",
+//       score: "★ 4.5",
+//       name: "식당명",
+//       address: "광주 동구 동명동 73-18"
+//     }
+//   }
+// ];
 
 const Tables = () => {
   // 토큰

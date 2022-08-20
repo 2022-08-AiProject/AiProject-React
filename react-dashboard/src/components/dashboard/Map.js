@@ -8,29 +8,15 @@ var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerS
 
 var test = ['광주광역시 동구 학동 31-31 1,2층	','광주광역시 남구 방림동 536-35 미래샷시 536-35 미래샷시 1층','광주 동구 지산동 694-33번지 1층'];
 var test1 = ['광주 동구 지산동 502-1','광주광역시 동구 학동 768 평화맨션','광주광역시 동구 계림동 505-900 홈플러스 광주계림점'];
-var name = [];
-var foodname = [];
-var price = [];
-var score = [];
-var location = [];
-var category = [];
-var markers = [];
-// 컬럼'location'가져오기
 
 
 
-axios.get('http://localhost:8000/users/menu/').then((response)=>{
-  // test2.push(response)
-  console.log(response.data.length);
-  for (var i=0; i<response.data.length;i++){
-    name.push(response.data[i].name)
-    console.log("["+i+"]"+name[i])
-  }
-}).catch((error)=>{
-  console.log(error);
-})
-for (var i=0; i<name.length;i++){
-  console.log("["+i+1+"]"+name[i])
+
+
+
+// 리스트 값 확인
+for (var i=0; i<foodname.length;i++){
+  console.log("["+i+1+"]"+foodname[i]);
 }
 // if test2[price] < 15000 {
 //   test3.push(test2[price])
@@ -130,7 +116,7 @@ const Map = () => {
                 });
                 marker.setMap(map);
                 map.setCenter(locPosition);
-
+                
                   for (var adresslist in test1){
                     geocoder.addressSearch(test1[adresslist], function(result, status) {
                     // 정상적으로 검색이 완료됐으면 
@@ -144,7 +130,8 @@ const Map = () => {
                 }
               }
             );
-          }};
+        }
+        };
 // 식당 추천을누르면 내위치 기준으로 식당출력?? 아니면 움직인 좌표 기준 식당출력 :https://apis.map.kakao.com/web/sample/addMapCenterChangedEvent/
 // 마커 제거(기능이 바뀔때 마다), 최소화면단위 500
         }).catch(() => {

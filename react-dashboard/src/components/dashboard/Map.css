@@ -96,7 +96,11 @@ span {
     margin-right: 7px;
     font-size: 13px;
 }
-
+@media (min-width: 1210px){
+    .btn-price{
+        margin-top: 0px;
+    }
+}
 @media (max-width: 1025px) {
     .map-card{
         width: 100%;
@@ -110,9 +114,9 @@ span {
         margin-top: 7px;
     }
 }
-@media (min-width: 1210px){
+@media (max-width: 662px){
     .btn-price{
-        margin-top: 0px;
+        margin-top: 7px;
     }
 }
 @media (max-width: 604px){

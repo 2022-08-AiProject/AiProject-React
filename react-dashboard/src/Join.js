@@ -17,11 +17,6 @@ function Join() {
     navigate(-1);
   };
 
-  // 메인페이지로
-  const goMain = () => {
-    document.location.href = "#";
-  };
-
   // django 연결
   const [name, setName] = useState(""); // 이름
   const [id, setId] = useState(""); // 아이디
@@ -64,7 +59,8 @@ function Join() {
           localStorage.clear();
           localStorage.setItem("token", res.data.key);
           // 사용하려면 App.js에서 /로 라우팅해야 한다
-          window.location.replace("/");
+          // window.location.replace("/");
+          document.location.href = "/";
         } else {
           setName("");
           setId("");
@@ -124,7 +120,7 @@ function Join() {
                         <Input className="like3" type="string"/>
                     </div> */}
           {/* 가입 버튼 */}
-          <Button className="join-btn" onClick={goMain}>회원가입</Button>
+          <Button className="join-btn" >회원가입</Button>
           <Button className="back-btn" onClick={goBack}>
             가입취소
           </Button>

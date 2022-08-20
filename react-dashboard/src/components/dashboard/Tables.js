@@ -51,9 +51,6 @@ const Tables = () => {
                     <option>
                       가격이 낮은 순으로 정렬
                     </option>
-                    <option>
-                      거리가 가까운 순으로 정렬
-                    </option>
                   </Input>
                 </FormGroup>
               ) : ( // 로그인 하지 않았을 때 옵션 목록

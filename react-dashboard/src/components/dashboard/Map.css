@@ -7,19 +7,7 @@
     margin-top: 7px;
 }
 
-@media (max-width: 1025px) {
-    .map-card{
-        width: 100%;
-    }
-}
-@media (min-width: 1025px) {
-    .map-card{
-        width: 100%;
-    }
-    .btn-price{
-        margin-top: 7px;
-    }
-}
+
 
 .search-bar{
     margin-bottom: 15px;
@@ -107,4 +95,48 @@
 span {
     margin-right: 7px;
     font-size: 13px;
+}
+
+@media (max-width: 1025px) {
+    .map-card{
+        width: 100%;
+    }
+}
+@media (min-width: 1025px) {
+    .map-card{
+        width: 100%;
+    }
+    .btn-price{
+        margin-top: 7px;
+    }
+}
+@media (min-width: 1210px){
+    .btn-price{
+        margin-top: 0px;
+    }
+}
+@media (max-width: 604px){
+    .btn-recommend{
+        display: block;
+        width: 100%;
+        height: 38px;
+        font-size: 16px;
+    }
+    .btn-recommend:visited,
+    .btn-recommend:hover{
+        font-size: 16px;
+        height: 38px;
+        color: rgb(255, 170, 139);
+        box-shadow: none !important;
+    }
+    .btn-food{
+        margin-top: 10px;
+        display: flex;
+        width: 100%;
+    }
+    .btn-price{
+        margin-top: 7px;
+        display: flex;
+        width: 100%;
+    }
 }

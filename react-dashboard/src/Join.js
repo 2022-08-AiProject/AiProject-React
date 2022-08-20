@@ -17,6 +17,11 @@ function Join() {
     navigate(-1);
   };
 
+  // 메인페이지로
+  const goMain = () => {
+    document.location.href = "#";
+  };
+
   // django 연결
   const [name, setName] = useState(""); // 이름
   const [id, setId] = useState(""); // 아이디
@@ -119,7 +124,7 @@ function Join() {
                         <Input className="like3" type="string"/>
                     </div> */}
           {/* 가입 버튼 */}
-          <Button className="join-btn">회원가입</Button>
+          <Button className="join-btn" onClick={goMain}>회원가입</Button>
           <Button className="back-btn" onClick={goBack}>
             가입취소
           </Button>

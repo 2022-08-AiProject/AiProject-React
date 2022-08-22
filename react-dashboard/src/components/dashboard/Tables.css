@@ -26,3 +26,12 @@
         table-layout: fixed;
     }
 }
+.table-score{
+    min-width: 50px;
+}
+.table-tr{
+    height: 55px;
+}
+.table-table{
+    margin-top: 10px;
+}

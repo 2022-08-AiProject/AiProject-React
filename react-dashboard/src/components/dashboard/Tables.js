@@ -34,35 +34,34 @@ axios.get('http://localhost:8000/users/menu/')
 })
 
 
-// 표 내용
-const tableData = [
-  {
-    menu: "메뉴",
-    price: "14,000 ₩",
-    score: "★ 4.5",
-    name: "식당명",
-    address: "광주 동구 동명동 73-18"
-  },
-  {
-    menu: "메뉴2",
-    price: "14,000 ₩",
-    score: "★ 4.5",
-    name: "식당명",
-    address: "광주 동구 동명동 73-18"
-  }
-];
-
+// // 표 내용
 // const tableData = [
-//   for (var i=0; i<5; i==){
-//     {
-//       menu: foodname[i],
-//       price: "14,000 ₩",
-//       score: "★ 4.5",
-//       name: "식당명",
-//       address: "광주 동구 동명동 73-18"
-//     }
+//   {
+//     menu: "메뉴",
+//     price: "14,000 ₩",
+//     score: "★ 4.5",
+//     name: "식당명",
+//     address: "광주 동구 동명동 73-18"
+//   },
+//   {
+//     menu: "메뉴2",
+//     price: "14,000 ₩",
+//     score: "★ 4.5",
+//     name: "식당명",
+//     address: "광주 동구 동명동 73-18"
 //   }
 // ];
+
+const tableData = [
+  
+    {
+      menu: "메뉴",
+      price: "14,000 ₩",
+      score: "★ 4.5",
+      name: "식당명",
+      address: "광주 동구 동명동 73-18"
+    }
+];
 
 const Tables = () => {
   // 토큰

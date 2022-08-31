@@ -3,7 +3,8 @@ import './Tables.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import React, { useState, useEffect,Component } from "react";
 import axios from "axios";
-import Map from './Map.js'
+import Map from './Map.js';
+import FullLayout from './FullLayout';
 var foodend_list = [];
 
 
@@ -44,13 +45,13 @@ for (var i=0; i<response.data.length;i++){
 }
 
 // 조건에 맞는 인덱스 번호 검색
-var idx = category.indexOf(element);
-while (idx != -1) {
-  indices.push(idx);
-  idx = category.indexOf(element, idx + 1);
-}
-console.log(indices);
-console.log(category)
+// var idx = category.indexOf(element);
+// while (idx != -1) {
+//   indices.push(idx);
+//   idx = category.indexOf(element, idx + 1);
+// }
+// console.log(indices);
+// console.log(category)
 
 // // printList에 값 넣기
 // for (var i=0; i<indices.length; i++){
@@ -64,52 +65,48 @@ console.log(error);
 })
 
 
-var indices = []; // 인덱스 번호 저장할 리스트
-var element = '한식';
 
 
 
-
-// console.log("++++가게이름 : " + printName[0]);
 
 const Tables = () => {
-  let tableData =[ // 5개 출력 한식만
-  {
-    menu: '연탄불막창',
-    price: '14500',
-    score: '5.0',
-    name: '호랑이곱창',
-    address: '광주광역시 동구 지산동 510-6'
-  },
-  {
-    menu: '김치찌개',
-    price: '7900',
-    score: '5.0',
-    name: '킹치찌개찜-조대점',
-    address: '광주광역시 동구 서석동 468-31'
-  },
-  {
-    menu: '야채 비빔밥',
-    price: '7000',
-    score: '5.0',
-    name: '더비빔-광주조선대점',
-    address: '광주광역시 동구 지산동 521-6'
-  },
-  {
-    menu: '닭한마리칼국수',
-    price: '22000',
-    score: '5.0',
-    name: '진닭한마리칼국수-동구',
-    address: '광주광역시 동구 서석동 20-7'
-  },
-  {
-    menu: '삼겹살비빔밥',
-    price: '8500',
-    score: '5.0',
-    name: '더비빔-광주조선대점',
-    address: '광주광역시 동구 지산동 521-6'
-  },
-];
+//   let tableData =[ // 5개 출력 한식만
+//   {
+//     menu: '연탄불막창',
+//     price: '14500',
+//     score: '5.0',
+//     name: '호랑이곱창',
+//     address: '광주광역시 동구 지산동 510-6'
+//   },
+//   {
+//     menu: '김치찌개',
+//     price: '7900',
+//     score: '5.0',
+//     name: '킹치찌개찜-조대점',
+//     address: '광주광역시 동구 서석동 468-31'
+//   },
+//   {
+//     menu: '야채 비빔밥',
+//     price: '7000',
+//     score: '5.0',
+//     name: '더비빔-광주조선대점',
+//     address: '광주광역시 동구 지산동 521-6'
+//   },
+//   {
+//     menu: '닭한마리칼국수',
+//     price: '22000',
+//     score: '5.0',
+//     name: '진닭한마리칼국수-동구',
+//     address: '광주광역시 동구 서석동 20-7'
+//   },
+//   {
+//     menu: '삼겹살비빔밥',
+//     price: '8500',
+//     score: '5.0',
+//     name: '더비빔-광주조선대점',
+//     address: '광주광역시 동구 지산동 521-6'
+//   },
+// ];
 //   let tableData =[ // 5개 출력 양식 한식 가격
 //   {
 //     menu: '연탄불곱창',
@@ -129,7 +126,7 @@ const Tables = () => {
 //     menu: '페퍼로니피자',
 //     price: '13900',
 //     score: '4.9',
-//     name: '피자나라치킨공주-광주조선대점',
+//     name: '피자나라치킨공주',
 //     address: '광주광역시 동구 지산동 514-2'
 //   },
 //   {
@@ -144,10 +141,10 @@ const Tables = () => {
 //     price: '8400',
 //     score: '4.5',
 //     name: '앗뜨죽-광주남구점',
-//     address: '광주광역시 남구 백운동 686 휴먼시아3단지아파트 2층 201호'
+//     address: '광주광역시 남구 백운동 686'
 //   },
 // ];
-// let tableData =[ // 5개 출력
+let tableData =[ // 5개 출력
 // {
 //   menu: '연탄불막창',
 //   price: '14500',
@@ -160,30 +157,30 @@ const Tables = () => {
 //   price: '7900',
 //   score: '5.0',
 //   name: '킹치찌개찜-조대점',
-//   address: '광주광역시 동구 서석동 468-31 서석동'
+//   address: '광주광역시 동구 서석동 468-31'
 // },
 // {
 //   menu: '야채 비빔밥',
 //   price: '7000',
 //   score: '5.0',
-//   name: '더비빔-광주조선대점',
+//   name: '더비빔',
 //   address: '광주광역시 동구 지산동 521-6'
 // },
 // {
 //   menu: '닭한마리칼국수',
 //   price: '22000',
 //   score: '5.0',
-//   name: '진닭한마리칼국수-동구점',
-//   address: '광주광역시 동구 서석동 20-7 1층'
+//   name: '진닭한마리칼국수',
+//   address: '광주광역시 동구 서석동 20-7'
 // },
 // {
 //   menu: '매운등갈비찜',
 //   price: '25000',
 //   score: '5.0',
-//   name: '광주광역시 동구 서석동 20-7 1층',
-//   address: '진닭한마리칼국수-동구점'
+//   name: '진닭한마리칼국수',
+//   address: '광주광역시 동구 서석동 20-7'
 // },
-// ];
+];
   // console.log(document.body)
 // 1. 전체 리스트에서 조건 추려서 출력할 리스트에 5개만 넣음
 // 2. tableData에 print~ 리스트의 값 출력

@@ -102,17 +102,18 @@ span {
         width: 100%;
     }
 }
+
+@media (min-width: 1210px){
+    .btn-price{
+        margin-top: 0px;
+    }
+}
 @media (min-width: 1025px) {
     .map-card{
         width: 100%;
     }
     .btn-price{
         margin-top: 7px;
-    }
-}
-@media (min-width: 1210px){
-    .btn-price{
-        margin-top: 0px;
     }
 }
 @media (max-width: 662px){

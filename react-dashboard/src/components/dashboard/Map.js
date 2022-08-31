@@ -27,33 +27,11 @@ var printLocation = [];
 var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
 
 var test = ['광주광역시 동구 학동 31-31 1,2층	','광주광역시 남구 방림동 536-35 미래샷시 536-35 미래샷시 1층','광주 동구 지산동 694-33번지 1층'];
-var test1 = ['광주광역시 동구 지산동 510-6', '광주광역시 동구 서석동 468-31 서석동', '광주광역시 동구 지산동 521-6', '광주광역시 동구 서석동 20-7 1층', '광주광역시 동구 지산동 521-6'];//한식만 눌렀을때
+// var test1 = ['광주광역시 동구 지산동 510-6', '광주광역시 동구 서석동 468-31 서석동', '광주광역시 동구 지산동 521-6', '광주광역시 동구 서석동 20-7 1층', '광주광역시 동구 지산동 521-6'];//한식만 눌렀을때
 // var test1 = ['광주광역시 동구 지산동 510-6', '광주광역시 동구 산수동 558-35 1층', '광주광역시 동구 지산동 514-2', '광주광역시 북구 우산동 258-3', '광주광역시 남구 백운동 686 휴먼시아3단지아파트 2층 201호']//한식 양식 가격 눌렀을때
-// var test1 =['광주 남구 백운동 590-6 1층', '광주광역시 동구 대인동 312-19', '광주광역시 동구 학동 1012 학2마을아파트 상가동 105호', '광주광역시 동구 지산동 507-2 1층', '광주광역시 남구 양림동 279-2 풍성한맛집']//내가 좋아하는 메뉴
+var test1 =['광주 남구 백운동 590-6 1층', '광주광역시 동구 대인동 312-19', '광주광역시 동구 학동 1012 학2마을아파트 상가동 105호', '광주광역시 동구 지산동 507-2 1층', '광주광역시 남구 양림동 279-2 풍성한맛집']//내가 좋아하는 메뉴
 
 var markers = [];
-axios.get('http://localhost:8000/users/foodends/')
-.then((response)=>{
-// foodend_list.push(response)
-// console.log(foodend_list)
-// test2.push(response)
-// console.log(response.data[0].foodname);
-// console.log(response.data[0].foodname);
-// for (시작할 값 ; 끝날 값 ; 증가/감소량)
-for (var i=0; i<response.data.length;i++){
-  // name.push(response.data[i].name);
-  name.push([response.data[i].name]);
-  foodname.push(response.data[i].foodname);
-  price.push(response.data[i].price);
-  score.push(response.data[i].score);
-  location.push(response.data[i].location);
-  category.push(response.data[i].category);
-  food_list.push(response.data)
-  // console.log("["+i+"]"+category[i])
-
-}}).catch((error)=>{
-  console.log(error);
-  })
 
 
 

@@ -6,13 +6,21 @@ import reportWebVitals from "./reportWebVitals";
 import { HashRouter } from "react-router-dom";
 import Loader from "./layouts/loader/Loader";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import  { Provider } from "react-redux";
+import { createStore } from "redux";
+import { reducer } from "./store";
+
+const store = createStore(reducer)
+
 
 ReactDOM.render(
+  <Provider store={store}>
   <Suspense fallback={<Loader />}>
     <HashRouter>
       <App />
     </HashRouter>
-  </Suspense>,
+  </Suspense>
+  </Provider>,
 
   document.getElementById("root")
 );
